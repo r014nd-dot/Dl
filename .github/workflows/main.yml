@@ -17,7 +17,7 @@ jobs:
       # Download a file using curl
       - name: Download File
         run: |
-          curl -L https://alinallmovies.tbnbotsnetwork.workers.dev/26211/12.+I_ll+Catch+You.mp3?hash=AgADpx
+          curl -L -o downloaded_file.mp3 https://alinallmovies.tbnbotsnetwork.workers.dev/26211/12.+I_ll+Catch+You.mp3?hash=AgADpx
 
       # Verify the file exists
       - name: Verify Download
