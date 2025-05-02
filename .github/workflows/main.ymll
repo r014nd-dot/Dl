@@ -1,0 +1,30 @@
+name: Download File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  download-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Download a file using curl
+      - name: Download File
+        run: |
+          curl -L -o downloaded_file.mp3 https://alinallmovies.tbnbotsnetwork.workers.dev/26211/12.+I_ll+Catch+You.mp3?hash=AgADpx
+
+      # Verify the file exists
+      - name: Verify Download
+        run: |
+          if [ -f "downloaded_file.mp3" ]; then
+            echo "File downloaded successfully!"
+          else
+            echo "Failed to download the file."
+            exit 1
+          fi
